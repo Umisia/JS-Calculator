@@ -1,0 +1,53 @@
+body {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 130px;
+    
+}
+
+.calculator {
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+button {    
+    border: 0;
+    margin: 5px;
+    line-height: 55px;
+    font-size: 35px;
+    width: 45px;
+}
+
+button:hover {
+    background-color: greenyellow;
+}
+
+.top-row {
+    width: 235px;    
+    display: inline-block;
+    position: relative;
+    
+}
+#clear{
+    float: left;
+}
+
+
+#viewer {
+    margin-right: 5px;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 25px;
+    line-height: 40px;
+/*
+    top: 175px;
+    right: 575px;
+*/
+    overflow: hidden;
+}
+
