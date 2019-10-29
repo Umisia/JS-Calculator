@@ -1,68 +1,69 @@
-/*
-TODO:
-    Limit number input
-    Disallow . from being entered multiple times
-    Clean up structure
-*/
+const nums = document.querySelectorAll(".nums");//list
+let viewer = document.querySelector("#viewer");
+const ops = document.querySelectorAll(".ops");
+let equal = document.querySelector("#equal");
+const clear = document.querySelector("#clear");
 
+let theNumber = "",
+    oldNumber = "",
+    op = "",
+    resultNumber = "";
 
-  // Shortcut to get elements
+//console.log(nums[1].getAttribute("data-num"));
 
-  // Variables
-  // Calculator screen where result is displayed
-    // Equal button
-    // List of numbers
-     // List of operators
-   // Current number
-    // First number
-    // Result
-  
-
-  // When: Number is clicked. Get the current number selected
-  // Otherwise, add digit to previous number (this is a string!)
-    // Display current number
-
-
-
-  // When: Operator is clicked. Pass number to oldNum and save operator
-  // Reset result in attr
+for (let i=0;i<nums.length; i++){
+    nums[i].addEventListener("click", function() {
+        if (resultNumber){
+            theNumber = this.getAttribute("data-num");
+            resultNumber = "";   
+        } else {
+            theNumber += this.getAttribute("data-num");                 
+        }
+        viewer.innerHTML = theNumber;
+//        console.log(theNumber);        
+    });
+}
  
+for (let i=0;i<ops.length; i++){
+    ops[i].addEventListener("click", function(){
+        oldNumber = theNumber;
+        theNumber = "";
+        op = this.getAttribute("data-ops");
+//        equal.setAttribute("data-ops", "");
+    });
+}
 
-  // When: Equals is clicked. Calculate result
-  
+equal.addEventListener("click", function() {
+    oldNumber = parseFloat(oldNumber);
+    theNumber = parseFloat(theNumber);
+    console.log(oldNumber, op, theNumber);
+    switch (op) {
+        case "+":
+            resultNumber = oldNumber + theNumber;
+            break;
+        case "-":
+            resultNumber = oldNumber - theNumber;
+            break;
+        case "*":
+            resultNumber = oldNumber * theNumber;
+            break;
+        case "/":
+            resultNumber = oldNumber / theNumber;
+            break;
+        default:
+            resultNumber = theNumber;
+            break;
+    }
+    viewer.innerHTML = resultNumber;
+    oldNumber = 0;
+    theNumber = resultNumber;          
+});
 
-    // Convert string input to numbers
- 
-
-    // Perform operation (switch)
-  
-        // If equal is pressed without an operator, keep number and continue
-   
-
-    // If NaN or Infinity returned
-     // If result is not a number; set off by, eg, double-clicking operators
-        // If result is infinity, set off by dividing by zero
-         // Break calculator
-        // And show reset button
+clear.addEventListener("click", function() {
+    oldNumber = "";
+    theNumber = "";
+    resultNumber = "";
+    viewer.innerHTML = "0";
     
-
-    // Display result, finally!
-   
-    // Now reset oldNum & keep result
-    
-
-  // When: Clear button is pressed. Clear everything
-  
-
-  /* The click events */
-
-  // Add click event to numbers
-  
-  // Add click event to operators
-  
-  // Add click event to equal sign
-  
-  // Add click event to clear button
- 
-  // Add click event to reset button
+})
  
