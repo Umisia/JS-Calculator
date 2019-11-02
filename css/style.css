@@ -38,6 +38,7 @@ button:hover {
 
 
 #viewer {
+    border: 1px solid red;
     margin-right: 5px;
     position: absolute;
     bottom: 5px;
