@@ -12,7 +12,6 @@ body {
 }
 
 .live-view {
-    border: 1px solid red;
     width: 180px;
     margin-left: 50px;
     text-align: center;
@@ -21,7 +20,8 @@ body {
     font-size: 15px;
     word-break: break-all;
     height: 55px;
-/*    overflow: scroll;*/
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .calculator {
@@ -53,21 +53,22 @@ button:hover {
 }
 
 #viewer {
-    border: 1px solid yellow;
     position: absolute;
     bottom: 5px;
     right: 5px;
     font-size: 25px;
     line-height: 40px;
-    width: 180px;
+    width: 175px;
+    overflow: hidden;
+    text-overflow: ellipsis;
     
 }
 
 .activated-vert {
-  animation: fade_vertical 0.8s ease-in-out;
+  animation: fade 0.5s ease-in-out;
 }
 
-@keyframes fade_vertical {
+@keyframes fade{
     from {
         transform: scale(1);     
         opacity: 1;
